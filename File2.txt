@@ -1,3 +1,11 @@
-456
-789
-101112
+update fine(
+select name, number_plate, violation 
+from fine
+group by name, number_plate, violation
+having count(violation) > 1
+order by name, number_plate, violation) as temple
+ser sum_fine = sum_fine * 2
+where date_violation is null and
+temple.name = fine.name and
+temple.number_plate = fine.number_plate and
+temple.violation = fine.violation
